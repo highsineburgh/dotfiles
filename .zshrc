@@ -17,4 +17,9 @@ antigen bundle ssh-agent
 # Blackbox
 antigen bundle StackExchange/blackbox
 
+# Vagrant
+antigen bundle vagrant
+
+antigen theme candy
+
 antigen apply
