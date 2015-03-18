@@ -20,6 +20,12 @@ antigen bundle StackExchange/blackbox
 # Vagrant
 antigen bundle vagrant
 
+# OSX Specifc
+if [[ $CURRENT_OS == 'OS X' ]]; then
+  antigen bundle osx
+  antigen bundle brew
+  antigen bundle brew-cask
+fi
 antigen theme candy
 
 antigen apply
