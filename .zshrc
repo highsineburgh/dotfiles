@@ -1,6 +1,6 @@
 source ~/Projects/dotfiles/antigen/antigen.zsh
 
-# Load the oh-my-zsh's library. 
+# Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
 antigen bundle git
@@ -26,6 +26,6 @@ if [[ $CURRENT_OS == 'OS X' ]]; then
   antigen bundle brew
   antigen bundle brew-cask
 fi
-antigen theme candy
+antigen theme ~/Projects/dotfiles/themes custom_candy
 
 antigen apply
