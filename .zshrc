@@ -25,7 +25,14 @@ if [[ $CURRENT_OS == 'OS X' ]]; then
   antigen bundle osx
   antigen bundle brew
   antigen bundle brew-cask
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+  export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 fi
 antigen theme ~/Projects/dotfiles/themes custom_candy
 
 antigen apply
+
+# Environment variables for virtualenvwrapper for python
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Projects
+source /usr/local/bin/virtualenvwrapper.sh
