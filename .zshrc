@@ -10,9 +10,10 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle pip
 antigen bundle python
 antigen bundle virtualenv
+antigen bundle golang
 
 # SSH
-antigen bundle ssh-agent
+#antigen bundle ssh-agent
 
 # Blackbox
 antigen bundle StackExchange/blackbox
@@ -35,4 +36,9 @@ antigen apply
 # Environment variables for virtualenvwrapper for python
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
-source /usr/local/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper.sh
+
+# GOLANG variables
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=~/Projects/go
