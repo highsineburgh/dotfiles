@@ -16,7 +16,7 @@ for src_file in src_files:
         continue
     target_file = join(target_dir, src_file)
     if lexists(target_file):
-        print "Symlink already exists, deleting existing symlink..."
+        print("Symlink already exists, deleting existing symlink...")
         remove(target_file)
-    print "Creating symlink {0} -> {1}".format(join(WORKING_DIR, src_file), target_file)
+    print("Creating symlink {0} -> {1}".format(join(WORKING_DIR, src_file), target_file))
     symlink(join(WORKING_DIR, src_file), target_file)
