@@ -36,7 +36,8 @@ antigen apply
 # Environment variables for virtualenvwrapper for python
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
-source /usr/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
 
 # GOLANG variables
 export PATH=$PATH:/usr/local/go/bin
