@@ -22,12 +22,13 @@ antigen bundle StackExchange/blackbox
 antigen bundle vagrant
 
 # OSX Specifc
-if [[ $CURRENT_OS == 'OS X' ]]; then
+if [[ `uname` == 'Darwin' ]]; then
   antigen bundle osx
   antigen bundle brew
-  antigen bundle brew-cask
+  # antigen bundle brew-cask
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
   export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+  export PATH=$PATH:/usr/local/bin/
 fi
 antigen theme ~/Projects/dotfiles/themes custom_candy
 
@@ -36,9 +37,11 @@ antigen apply
 # Environment variables for virtualenvwrapper for python
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
 
+if [[ `uname` == 'Linux' ]]; then
+  export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+fi
 # GOLANG variables
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
