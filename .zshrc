@@ -29,6 +29,8 @@ if [[ `uname` == 'Darwin' ]]; then
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
   export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
   export PATH=$PATH:/usr/local/bin/
+  export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 fi
 antigen theme ~/Projects/dotfiles/themes custom_candy
 
