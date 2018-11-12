@@ -47,3 +47,6 @@ Temporary Items
 !.vscode/launch.json
 !.vscode/extentions.json
 
+## Other IDE litter
+.idea
+*.iml
