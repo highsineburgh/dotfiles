@@ -30,8 +30,13 @@ if [[ `uname` == 'Darwin' ]]; then
   export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
   export PATH=$PATH:/usr/local/bin/
   export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
+  
+## NIX specific profile
+  if [ -d /nix/ ]; then
+    . ~/.nix-profile/etc/profile.d/nix.sh
+  fi
 fi
+
 antigen theme ~/Projects/dotfiles/themes custom_candy
 
 antigen apply
