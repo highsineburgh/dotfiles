@@ -25,15 +25,16 @@ antigen bundle vagrant
 if [[ `uname` == 'Darwin' ]]; then
   antigen bundle osx
   antigen bundle brew
-  # antigen bundle brew-cask
-  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-  export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-  export PATH=$PATH:/usr/local/bin/
   export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
   
 ## NIX specific profile
   if [ -d /nix/ ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh
+    export VIRTUALENVWRAPPER_PYTHON=~/.nix-profile/bin/python3
+    export VIRTUALENVWRAPPER_VIRTUALENV=~/.nix-profile/bin/virtualenv
+  else 
+    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
   fi
 fi
 
@@ -44,7 +45,13 @@ antigen apply
 # Environment variables for virtualenvwrapper for python
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
-source /usr/local/bin/virtualenvwrapper.sh
+
+## check for virtualenvwrapper in nix
+if [ -d /nix/ ]; then
+  source ~/.nix-profile/bin/virtualenvwrapper.sh
+else
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 if [[ `uname` == 'Linux' ]]; then
   export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
